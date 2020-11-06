@@ -4,7 +4,7 @@ from scipy.ndimage import morphology
 from skimage.measure import label, regionprops
 from skimage.filters import threshold_triangle
 
-def circularity(region, label = 1):
+def circ(region, label = 1):
     return (region.perimeter ** 2) / region.area
 
 def toGray(image):
@@ -52,7 +52,7 @@ p = 0 # количество карандашей
 for region in regionprops(labeled):
     #print(region.area) # площадь найденной фигуры
     i += 1
-    if (( (320000 < region.area < 500000) and (circularity(region, i) > 100))):
+    if (( (320000 < region.area < 500000) and (circ(region, i) > 100))):
         p += 1
 
 
