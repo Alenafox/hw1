@@ -12,7 +12,7 @@ def toGray(image):
 
 def binarisation(image, limit_min, limit_max):
     B = image.copy()
-    B[B < limit_min] = 0
+    B[B <= limit_min] = 0
     B[B >= limit_max] = 0
     B[B > 0] = 1
     return B
